@@ -27,8 +27,7 @@ func TestNewUnionFind(t *testing.T) {
 
 func TestUnionFind_Root(t *testing.T) {
 	type fields struct {
-		vn  int
-		par []int
+		vn int
 	}
 	type args struct {
 		u int
@@ -39,14 +38,20 @@ func TestUnionFind_Root(t *testing.T) {
 		args   args
 		want   int
 	}{
-		// TODO: Add test cases.
+		{
+			name: "Case 1",
+			fields: fields{
+				vn: 10,
+			},
+			args: args{
+				u: 0,
+			},
+			want: 0,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			uf := UnionFind{
-				vn:  tt.fields.vn,
-				par: tt.fields.par,
-			}
+			uf := NewUnionFind(tt.fields.vn)
 			if got := uf.Root(tt.args.u); got != tt.want {
 				t.Errorf("UnionFind.Root() = %v, want %v", got, tt.want)
 			}

@@ -12,7 +12,30 @@ func TestSum(t *testing.T) {
 		args args
 		want int
 	}{
-		// TODO: Add test cases.
+		{
+			name: "Case 1",
+			args: args{
+				a: 1,
+				b: 10,
+			},
+			want: 11,
+		},
+		{
+			name: "Case 2",
+			args: args{
+				a: -3,
+				b: 10,
+			},
+			want: 7,
+		},
+		{
+			name: "Case 3",
+			args: args{
+				a: 0,
+				b: 10,
+			},
+			want: 10,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
